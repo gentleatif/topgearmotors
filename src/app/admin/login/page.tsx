@@ -52,14 +52,14 @@ export default function AdminLoginPage() {
       <div className="relative w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Image src="/logo.jpeg" alt="Top Gear Motors" width={120} height={48} className="object-contain h-12 w-auto" />
+          <div className="inline-flex items-center justify-center overflow-hidden rounded-xl mb-3">
+            <Image src="/logo.jpeg" alt="Top Gear Motors" width={160} height={64} className="object-contain h-16 w-auto" />
           </div>
           <p className="text-dark-400 text-sm">Admin Panel — Sign in to continue</p>
         </div>
 
         {/* Card */}
-        <div className="bg-dark-900 border border-dark-700 rounded-3xl p-8 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+        <div className="bg-dark-900 border border-white/10 rounded-3xl p-8 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-1.5">
               <Label htmlFor="email">Email Address</Label>

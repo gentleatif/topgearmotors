@@ -114,13 +114,13 @@ export default function CarForm({ car, mode }: Props) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
       {/* Images */}
-      <div className="bg-dark-900 border border-dark-800 rounded-2xl p-6">
+      <div className="bg-dark-900 border border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.6)] p-6">
         <h3 className="text-white font-semibold mb-4">Photos</h3>
         <ImageUploader images={images} onChange={setImages} />
       </div>
 
       {/* Basic Info */}
-      <div className="bg-dark-900 border border-dark-800 rounded-2xl p-6 space-y-5">
+      <div className="bg-dark-900 border border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.6)] p-6 space-y-5">
         <h3 className="text-white font-semibold">Basic Information</h3>
 
         <Field name="title" label="Listing Title" placeholder="e.g. 2022 Hyundai i20 Sportz – Excellent Condition" />
@@ -182,7 +182,7 @@ export default function CarForm({ car, mode }: Props) {
       </div>
 
       {/* Description */}
-      <div className="bg-dark-900 border border-dark-800 rounded-2xl p-6 space-y-3">
+      <div className="bg-dark-900 border border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.6)] p-6 space-y-3">
         <h3 className="text-white font-semibold">Description</h3>
         <Textarea
           rows={6}
@@ -193,7 +193,7 @@ export default function CarForm({ car, mode }: Props) {
       </div>
 
       {/* SEO */}
-      <div className="bg-dark-900 border border-dark-800 rounded-2xl p-6 space-y-4">
+      <div className="bg-dark-900 border border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.6)] p-6 space-y-4">
         <h3 className="text-white font-semibold">SEO Settings</h3>
         <Field name="slug"           label="URL Slug (auto-generated if blank)" placeholder="used-hyundai-i20-2022-surat" />
         <Field name="seoTitle"       label="Meta Title"       placeholder="Buy Used Hyundai i20 2022 in Surat | Top Gear Motors" />

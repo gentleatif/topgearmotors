@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
     const url = await uploadImage(file, 'drive-elite/cars')
     return NextResponse.json({ success: true, url })
   } catch (err: any) {
-    return NextResponse.json({ error: err.message || 'Upload failed' }, { status: 500 })
+    console.error('[upload] error:', err)
+    return NextResponse.json({ error: err.message || 'Upload failed', detail: String(err) }, { status: 500 })
   }
 }

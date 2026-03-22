@@ -50,7 +50,7 @@ export default async function DashboardPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
         {stats.map(({ icon: Icon, label, value, color, bg }) => (
-          <div key={label} className="bg-dark-900 border border-dark-800 rounded-2xl p-6 flex items-center gap-5">
+          <div key={label} className="bg-dark-900 border border-white/10 rounded-2xl p-6 flex items-center gap-5 shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
             <div className={`w-12 h-12 rounded-xl ${bg} flex items-center justify-center`}>
               <Icon className={`w-6 h-6 ${color}`} />
             </div>
@@ -63,8 +63,8 @@ export default async function DashboardPage() {
       </div>
 
       {/* Recent */}
-      <div className="bg-dark-900 border border-dark-800 rounded-2xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-dark-800 flex items-center justify-between">
+      <div className="bg-dark-900 border border-white/10 rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
+        <div className="px-6 py-4 border-b border-dark-700 flex items-center justify-between">
           <h2 className="text-white font-semibold">Recent Listings</h2>
           <Link href="/admin/cars" className="text-gold-500 hover:underline text-sm">View All</Link>
         </div>
@@ -86,7 +86,7 @@ export default async function DashboardPage() {
                 </div>
                 <div className="flex items-center gap-4 ml-4">
                   <div className="text-gold-400 font-semibold text-sm">{formatPrice(car.price)}</div>
-                  <Link href={`/admin/cars/${car._id}/edit`} className="text-xs text-dark-400 hover:text-gold-400 transition-colors border border-dark-700 hover:border-gold-500/50 px-3 py-1.5 rounded-xl">
+                  <Link href={`/admin/cars/${car._id}/edit`} className="text-xs text-dark-400 hover:text-gold-400 transition-colors border border-white/10 hover:border-gold-500/50 px-3 py-1.5 rounded-xl">
                     Edit
                   </Link>
                 </div>

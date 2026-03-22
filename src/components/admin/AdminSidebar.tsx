@@ -16,10 +16,12 @@ export default function AdminSidebar() {
   const pathname = usePathname()
 
   return (
-    <aside className="w-60 bg-dark-950 border-r border-dark-800 flex flex-col min-h-screen">
+    <aside className="w-60 bg-dark-950 border-r border-dark-700 flex flex-col min-h-screen">
       {/* Logo */}
-      <div className="px-4 py-4 border-b border-dark-800">
+      <div className="px-4 py-4 border-b border-dark-700">
         <Link href="/" className="flex items-center justify-center">
+                      <div className="overflow-hidden rounded-xl h-14 ">
+
           <Image
             src="/logo.jpeg"
             alt="Top Gear Motors"
@@ -27,11 +29,16 @@ export default function AdminSidebar() {
             height={60}
             className="object-contain h-14 w-auto"
           />
+                                </div>
+
         </Link>
+
+
+                     
         <p className="text-dark-500 text-xs text-center mt-2">Admin Panel</p>
       </div>
 
-      {/* Nav */}
+      {/* Nav */} 
       <nav className="flex-1 p-4 space-y-1">
         {links.map(({ href, icon: Icon, label }) => {
           const active = pathname === href || (href !== '/admin/dashboard' && pathname.startsWith(href))
@@ -55,7 +62,7 @@ export default function AdminSidebar() {
       </nav>
 
       {/* Bottom */}
-      <div className="p-4 border-t border-dark-800 space-y-1">
+      <div className="p-4 border-t border-dark-700 space-y-1">
         <Link
           href="/"
           target="_blank"

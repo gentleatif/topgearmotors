@@ -67,18 +67,18 @@ export default function AdminCarsPage() {
           <Loader2 className="w-8 h-8 animate-spin text-gold-500" />
         </div>
       ) : filtered.length === 0 ? (
-        <div className="text-center py-20 bg-dark-900 border border-dark-800 rounded-2xl">
+        <div className="text-center py-20 bg-dark-900 border border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
           <p className="text-dark-400">
             {search ? 'No results found.' : 'No cars yet. '}
             {!search && <Link href="/admin/cars/new" className="text-gold-500 hover:underline">Add your first car</Link>}
           </p>
         </div>
       ) : (
-        <div className="bg-dark-900 border border-dark-800 rounded-2xl overflow-hidden">
+        <div className="bg-dark-900 border border-white/10 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.6)] overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-dark-800">
+                <tr className="border-b border-dark-700">
                   <th className="text-left px-4 py-3 text-xs font-semibold text-dark-400 uppercase tracking-wider w-16">Photo</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-dark-400 uppercase tracking-wider">Car</th>
                   <th className="text-left px-4 py-3 text-xs font-semibold text-dark-400 uppercase tracking-wider">Price</th>
@@ -87,7 +87,7 @@ export default function AdminCarsPage() {
                   <th className="text-right px-4 py-3 text-xs font-semibold text-dark-400 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-dark-800">
+              <tbody className="divide-y divide-dark-700">
                 {filtered.map(car => (
                   <tr key={car._id} className="hover:bg-dark-800/50 transition-colors">
                     <td className="px-4 py-3">
