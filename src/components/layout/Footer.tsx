@@ -75,7 +75,7 @@ export default function Footer() {
               <li>
                 <div className="flex items-start gap-3 text-sm text-dark-400">
                   <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                  <span>Nar Khalifa Masjid, Nanura,<br />Nanpura, Surat, Gujarat 395001</span>
+                  <span>Near Khalifa Masjid, Nanura,<br />Nanpura, Surat, Gujarat 395001</span>
                 </div>
               </li>
             </ul>

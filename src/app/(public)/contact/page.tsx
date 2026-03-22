@@ -107,7 +107,7 @@ export default function ContactPage() {
             {[
               { icon: Phone,  title: 'Phone',   value: '+91 98251 34228',            href: 'tel:+919825134228'                  },
               { icon: Mail,   title: 'Email',   value: 'nalbandhbilal@gmail.com', href: 'mailto:nalbandhbilal@gmail.com'     },
-              { icon: MapPin, title: 'Address', value: 'Nar Khalifa Masjid, Nanura, Nanpura, Surat, Gujarat 395001', href: null },
+              { icon: MapPin, title: 'Address', value: 'Near Khalifa Masjid, Nanura, Nanpura, Surat, Gujarat 395001', href: null },
             ].map(({ icon: Icon, title, value, href }) => (
               <div key={title} className="flex gap-4 p-5 bg-dark-900 border border-dark-800 rounded-xl hover:border-gold-500/30 transition-colors">
                 <div className="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center shrink-0">

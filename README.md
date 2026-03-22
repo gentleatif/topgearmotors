@@ -115,7 +115,7 @@ Current contact details (already updated):
 - Phone: `+91 98251 34228`
 - WhatsApp: `919825134228`
 - Email: `nalbandhbilal@gmail.com`
-- Address: `Nar Khalifa Masjid, Nanura, Nanpura, Surat, Gujarat 395001`
+- Address: `Near Khalifa Masjid, Nanura, Nanpura, Surat, Gujarat 395001`
 
 ### Change Business Name
 Business name is **Top Gear Motors** — updated across all files.
