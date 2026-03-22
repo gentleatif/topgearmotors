@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -19,7 +19,7 @@ const schema = z.object({
 })
 type FormData = z.infer<typeof schema>
 
-export default function ContactPage() {
+function ContactForm() {
   const searchParams = useSearchParams()
   const carTitle = searchParams.get('car') || ''
   const [sent, setSent] = useState(false)
@@ -38,6 +38,55 @@ export default function ContactPage() {
     if (res.ok) setSent(true)
   }
 
+  if (sent) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
+        <CheckCircle2 className="w-16 h-16 text-emerald-500" />
+        <h3 className="text-white text-xl font-bold">Message Sent!</h3>
+        <p className="text-dark-400 text-sm">We&apos;ll get back to you within 24 hours.</p>
+      </div>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-1.5">
+          <Label>Your Name</Label>
+          <Input placeholder="Rahul Sharma" {...register('name')} />
+          {errors.name && <p className="text-red-400 text-xs">{errors.name.message}</p>}
+        </div>
+        <div className="space-y-1.5">
+          <Label>Phone Number</Label>
+          <Input placeholder="+91 98251 34228" {...register('phone')} />
+          {errors.phone && <p className="text-red-400 text-xs">{errors.phone.message}</p>}
+        </div>
+      </div>
+
+      <div className="space-y-1.5">
+        <Label>Email Address</Label>
+        <Input type="email" placeholder="rahul@example.com" {...register('email')} />
+        {errors.email && <p className="text-red-400 text-xs">{errors.email.message}</p>}
+      </div>
+
+      <div className="space-y-1.5">
+        <Label>Message</Label>
+        <Textarea rows={5} placeholder="Tell us about the car you're interested in…" {...register('message')} />
+        {errors.message && <p className="text-red-400 text-xs">{errors.message.message}</p>}
+      </div>
+
+      <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+        {isSubmitting ? (
+          <Loader2 className="w-4 h-4 animate-spin" />
+        ) : (
+          <><Send className="w-4 h-4 mr-2" /> Send Message</>
+        )}
+      </Button>
+    </form>
+  )
+}
+
+export default function ContactPage() {
   return (
     <section className="pt-32 pb-24 bg-dark-950 min-h-screen">
       <div className="container-wide section-padding">
@@ -92,48 +141,9 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-3 bg-dark-900 border border-dark-800 rounded-xl p-8"
           >
-            {sent ? (
-              <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
-                <CheckCircle2 className="w-16 h-16 text-emerald-500" />
-                <h3 className="text-white text-xl font-bold">Message Sent!</h3>
-                <p className="text-dark-400 text-sm">We&apos;ll get back to you within 24 hours.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1.5">
-                    <Label>Your Name</Label>
-                    <Input placeholder="Rahul Sharma" {...register('name')} />
-                    {errors.name && <p className="text-red-400 text-xs">{errors.name.message}</p>}
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label>Phone Number</Label>
-                    <Input placeholder="+91 98251 34228" {...register('phone')} />
-                    {errors.phone && <p className="text-red-400 text-xs">{errors.phone.message}</p>}
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <Label>Email Address</Label>
-                  <Input type="email" placeholder="rahul@example.com" {...register('email')} />
-                  {errors.email && <p className="text-red-400 text-xs">{errors.email.message}</p>}
-                </div>
-
-                <div className="space-y-1.5">
-                  <Label>Message</Label>
-                  <Textarea rows={5} placeholder="Tell us about the car you're interested in…" {...register('message')} />
-                  {errors.message && <p className="text-red-400 text-xs">{errors.message.message}</p>}
-                </div>
-
-                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    <Loader2 className="w-4 h-4 animate-spin" />
-                  ) : (
-                    <><Send className="w-4 h-4 mr-2" /> Send Message</>
-                  )}
-                </Button>
-              </form>
-            )}
+            <Suspense fallback={<div className="text-dark-400 text-sm">Loading form…</div>}>
+              <ContactForm />
+            </Suspense>
           </motion.div>
         </div>
       </div>
