@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document, Model } from 'mongoose'
 import slugify from 'slugify'
 
-export interface ICar extends Document {
+export interface ICar extends Omit<Document, 'model'> {
   title: string
   slug: string
   brand: string
