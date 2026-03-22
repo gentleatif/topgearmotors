@@ -40,7 +40,7 @@ export default function AdminSidebar() {
               key={href}
               href={href}
               className={cn(
-                'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all',
+                'flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all',
                 active
                   ? 'bg-gold-500/10 text-gold-400 border border-gold-500/20'
                   : 'text-dark-400 hover:text-white hover:bg-dark-800'
@@ -59,7 +59,7 @@ export default function AdminSidebar() {
         <Link
           href="/"
           target="_blank"
-          className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-dark-400 hover:text-white hover:bg-dark-800 transition-all w-full"
+          className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-dark-400 hover:text-white hover:bg-dark-800 transition-all w-full"
         >
           <ExternalLink className="w-4 h-4" />
           View Website

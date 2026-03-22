@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+import Image from 'next/image'
 import { Loader2, LogIn, Eye, EyeOff } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -52,14 +53,13 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center text-dark-950 font-bold">D</div>
-            <span className="font-serif text-2xl font-bold">Drive<span className="gold-text">Elite</span></span>
+            <Image src="/logo.jpeg" alt="Top Gear Motors" width={120} height={48} className="object-contain h-12 w-auto" />
           </div>
           <p className="text-dark-400 text-sm">Admin Panel — Sign in to continue</p>
         </div>
 
         {/* Card */}
-        <div className="bg-dark-900 border border-dark-800 rounded-2xl p-8">
+        <div className="bg-dark-900 border border-dark-700 rounded-3xl p-8 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="space-y-1.5">
               <Label htmlFor="email">Email Address</Label>
@@ -68,7 +68,7 @@ export default function AdminLoginPage() {
                 type="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
-                placeholder="nalbandhbilal@gmail.com"
+                placeholder="admin@topgearmotors.com"
                 required
                 autoComplete="email"
               />

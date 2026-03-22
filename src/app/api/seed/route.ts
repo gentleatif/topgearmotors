@@ -4,8 +4,8 @@ import User from '@/models/User'
 
 /**
  * POST /api/seed
- * Run ONCE to create the admin user.
- * Then delete or protect this route.
+ * Creates or resets the admin user using ADMIN_EMAIL + ADMIN_PASSWORD from .env
+ * Only runs in development.
  */
 export async function POST() {
   if (process.env.NODE_ENV === 'production') {
@@ -15,14 +15,11 @@ export async function POST() {
   try {
     await connectDB()
 
-    const email = process.env.ADMIN_EMAIL    || 'nalbandhbilal@gmail.com'
-    const pass  = process.env.ADMIN_PASSWORD || 'Admin@12345'
+    const email = process.env.ADMIN_EMAIL    || 'admin@topgearmotors.com'
+    const pass  = process.env.ADMIN_PASSWORD || 'Admin@123456'
 
-    const existing = await User.findOne({ email })
-    if (existing) {
-      return NextResponse.json({ message: 'Admin already exists', email })
-    }
-
+    // Delete any existing admin user(s) and recreate fresh
+    await User.deleteMany({ role: 'admin' })
     const admin = await User.create({ email, password: pass, name: 'Top Gear Motors Admin', role: 'admin' })
     return NextResponse.json({ message: 'Admin created successfully', email: admin.email })
   } catch (err: any) {

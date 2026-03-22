@@ -67,14 +67,14 @@ export default function AdminCarsPage() {
           <Loader2 className="w-8 h-8 animate-spin text-gold-500" />
         </div>
       ) : filtered.length === 0 ? (
-        <div className="text-center py-20 bg-dark-900 border border-dark-800 rounded-xl">
+        <div className="text-center py-20 bg-dark-900 border border-dark-800 rounded-2xl">
           <p className="text-dark-400">
             {search ? 'No results found.' : 'No cars yet. '}
             {!search && <Link href="/admin/cars/new" className="text-gold-500 hover:underline">Add your first car</Link>}
           </p>
         </div>
       ) : (
-        <div className="bg-dark-900 border border-dark-800 rounded-xl overflow-hidden">
+        <div className="bg-dark-900 border border-dark-800 rounded-2xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
