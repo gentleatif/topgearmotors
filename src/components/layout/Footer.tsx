@@ -14,13 +14,15 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center mb-4">
-              <Image
-                src="/logo.jpeg"
-                alt="Top Gear Motors"
-                width={140}
-                height={56}
-                className="object-contain h-14 w-auto"
-              />
+              <div className="overflow-hidden rounded-xl h-12">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Top Gear Motors"
+                  width={140}
+                  height={56}
+                  className="object-contain h-full w-auto"
+                />
+              </div>
             </Link>
             <p className="text-dark-400 text-sm leading-relaxed max-w-xs">
               Your trusted destination for premium pre-owned vehicles. Every car is

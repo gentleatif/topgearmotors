@@ -41,14 +41,16 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="group flex items-center">
-              <Image
-                src="/logo.jpeg"
-                alt="Top Gear Motors"
-                width={130}
-                height={52}
-                className="object-contain h-12 w-auto"
-                priority
-              />
+              <div className="overflow-hidden rounded-xl h-9 sm:h-12">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Top Gear Motors"
+                  width={130}
+                  height={52}
+                  className="object-contain h-full w-auto"
+                  priority
+                />
+              </div>
             </Link>
 
             {/* Desktop Nav */}
